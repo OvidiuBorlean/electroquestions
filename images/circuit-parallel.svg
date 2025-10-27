@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Parallel Circuit -->
+    <rect x="10" y="10" width="280" height="180" fill="white" stroke="black"/>
+    <!-- Battery -->
+    <line x1="50" y1="80" x2="50" y2="120" stroke="black" stroke-width="2"/>
+    <line x1="60" y1="90" x2="60" y2="110" stroke="black" stroke-width="4"/>
+    <!-- Resistor 1 (top branch) -->
+    <path d="M 100,70 L 130,70 L 140,60 L 150,80 L 160,60 L 170,80 L 180,70 L 200,70" fill="none" stroke="black"/>
+    <!-- Resistor 2 (bottom branch) -->
+    <path d="M 100,130 L 130,130 L 140,120 L 150,140 L 160,120 L 170,140 L 180,130 L 200,130" fill="none" stroke="black"/>
+    <!-- Connecting wires -->
+    <line x1="50" y1="100" x2="100" y2="100" stroke="black"/>
+    <line x1="100" y1="70" x2="100" y2="130" stroke="black"/>
+    <line x1="200" y1="70" x2="200" y2="130" stroke="black"/>
+    <line x1="200" y1="100" x2="250" y2="100" stroke="black"/>
+</svg>

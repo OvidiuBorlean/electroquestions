@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Series Circuit -->
+    <rect x="10" y="10" width="280" height="180" fill="white" stroke="black"/>
+    <!-- Battery -->
+    <line x1="50" y1="80" x2="50" y2="120" stroke="black" stroke-width="2"/>
+    <line x1="60" y1="90" x2="60" y2="110" stroke="black" stroke-width="4"/>
+    <!-- Resistor 1 -->
+    <path d="M 100,100 L 130,100 L 140,90 L 150,110 L 160,90 L 170,110 L 180,100 L 200,100" fill="none" stroke="black"/>
+    <!-- Resistor 2 -->
+    <path d="M 220,100 L 250,100 L 260,90 L 270,110 L 280,90 L 290,110 L 300,100 L 320,100" fill="none" stroke="black"/>
+    <!-- Connecting wires -->
+    <path d="M 50,100 L 100,100 M 200,100 L 220,100" stroke="black"/>
+    <path d="M 320,100 C 340,100 340,50 50,50 L 50,80" stroke="black" fill="none"/>
+</svg>
