@@ -3,7 +3,7 @@ import json
 
 def excel_to_questions():
     # Read the Excel file, setting index_col=0 to skip the first column (index)
-    df = pd.read_excel('electrotehnica.xlsx', index_col=0)
+    df = pd.read_excel('normetehnice.xlsx', index_col=0)
     
     # Print the column names to see what they actually are
     print("Available columns in Excel file:", df.columns.tolist())
@@ -16,9 +16,9 @@ def excel_to_questions():
         question = {
             'question': str(row[df.columns[0]]),  # First column (after index)
             'options': [
-                str(row[df.columns[1]]),  # Second column
-                str(row[df.columns[2]]),  # Third column
-                str(row[df.columns[3]])   # Fourth column
+                str(row[df.columns[0]]),  # Second column
+                str(row[df.columns[1]]),  # Third column
+                str(row[df.columns[2]])   # Fourth column
             ],
             'answer': str(row[df.columns[1]]),  # Assuming first option is correct
             'reference': 'https://example.com/reference'
@@ -31,7 +31,7 @@ def excel_to_questions():
     js_output += 'export { BASE_QUESTIONS };'
     
     # Write to questions.js file
-    with open('questions.js', 'w', encoding='utf-8') as f:
+    with open('normetehnice.js', 'w', encoding='utf-8') as f:
         f.write(js_output)
 
 if __name__ == '__main__':
