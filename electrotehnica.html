@@ -173,19 +173,22 @@
       return a;
     }
 
-    // Pregătim întrebările cu shuffle
+    // Selectăm 30 de întrebări random din baza de date
     // 1) amestecăm ordinea întrebărilor
-    // 2) pentru fiecare întrebare, amestecăm opțiunile
-    const QUESTIONS = shuffle(BASE_QUESTIONS).map(q => {
-      const shuffledOptions = shuffle(q.options);
-      return {
-        question: q.question,
-        options: shuffledOptions,
-        // Răspunsul rămâne pe bază de text; verificarea se face prin egalitate de string
-        answer: q.answer,
-        reference: q.reference
-      };
-    });
+    // 2) selectăm primele 30
+    // 3) pentru fiecare întrebare, amestecăm opțiunile
+    const QUESTIONS = shuffle(BASE_QUESTIONS)
+      .slice(0, 30)
+      .map(q => {
+        const shuffledOptions = shuffle(q.options);
+        return {
+          question: q.question,
+          options: shuffledOptions,
+          answer: q.answer,
+          reference: q.reference,
+          image: q.image
+        };
+      });
 
     let currentQuestion = 0;
     let score = 0;
