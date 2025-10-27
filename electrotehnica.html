@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz – Shuffle întrebări & opțiuni, Next, fără timer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .quiz-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 600px;
+      padding: 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .question {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      min-height: 2.5em;
+    }
+
+    .question-image {
+      max-width: 100%;
+      height: auto;
+      margin: 15px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option {
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+      background-color: #fff;
+      color: #333;
+      text-align: left;
+    }
+
+    .option:hover {
+      background-color: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
+
+    /* Culori feedback */
+    .option.correct {
+      background-color: #1e3a8a; /* albastru */
+      color: #fff;
+      border-color: #1e3a8a;
+    }
+    .option.wrong {
+      background-color: #dc2626; /* roșu */
+      color: #fff;
+      border-color: #dc2626;
+    }
+
+    .option.disabled {
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn:hover { background-color: #0056b3; }
+    .btn:disabled {
+      background-color: #9bbcf0;
+      cursor: not-allowed;
+    }
+
+    .result {
+      font-size: 1.5em;
+      color: #4caf50;
+      display: none;
+      margin-top: 10px;
+    }
+
+    .progress {
+      margin-top: 12px;
+      color: #666;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="question">Întrebarea va apărea aici</div>
+    <div class="options"></div>
+
+    <div class="controls">
+      <button id="nextBtn" class="btn" disabled>Next</button>
+      <button id="restartBtn" class="btn" style="display:none;">Restart Quiz</button>
+    </div>
+
+    <div class="progress" id="progress"></div>
+    <div class="result">Scorul tău: <span id="score">0</span></div>
+    <div class="reference" id="reference" style="display: none;">
+      <p>Reference:</p>
+      <a href="#" target="_blank" id="referenceLink"></a>
+    </div>
+  </div>
+
+  <style>
+    .reference {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      font-size: 0.9em;
+    }
+    .reference p {
+      margin: 0;
+      color: #666;
+    }
+    .reference a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .reference a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <script type="module">
+    // Import questions from external file
+    import { BASE_QUESTIONS } from './questions.js';
+
+    // Funcție utilitară: shuffle (Fisher–Yates)
+    function shuffle(array) {
+      const a = array.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    // Pregătim întrebările cu shuffle
+    // 1) amestecăm ordinea întrebărilor
+    // 2) pentru fiecare întrebare, amestecăm opțiunile
+    const QUESTIONS = shuffle(BASE_QUESTIONS).map(q => {
+      const shuffledOptions = shuffle(q.options);
+      return {
+        question: q.question,
+        options: shuffledOptions,
+        // Răspunsul rămâne pe bază de text; verificarea se face prin egalitate de string
+        answer: q.answer,
+        reference: q.reference
+      };
+    });
+
+    let currentQuestion = 0;
+    let score = 0;
+    let answeredThisQuestion = false;
+
+    const questionEl = document.querySelector('.question');
+    const optionsEl = document.querySelector('.options');
+    const resultEl = document.querySelector('.result');
+    const scoreEl = document.getElementById('score');
+    const nextBtn = document.getElementById('nextBtn');
+    const restartBtn = document.getElementById('restartBtn');
+    const progressEl = document.getElementById('progress');
+
+    function updateProgress() {
+      progressEl.textContent = `Întrebarea ${Math.min(currentQuestion + 1, QUESTIONS.length)} din ${QUESTIONS.length}`;
+    }
+
+    function loadQuestion() {
+      if (currentQuestion >= QUESTIONS.length) {
+        endQuiz();
+        document.getElementById('reference').style.display = 'none';  // Hide reference at quiz end
+        return;
+      }
+
+      answeredThisQuestion = false;
+      nextBtn.disabled = true;
+
+      const currentQ = QUESTIONS[currentQuestion];
+      
+      // Clear previous content
+      questionEl.innerHTML = '';
+      optionsEl.innerHTML = '';
+      
+      // Add question text
+      const questionText = document.createElement('div');
+      questionText.textContent = currentQ.question;
+      questionEl.appendChild(questionText);
+      
+      // Add image if present
+      if (currentQ.image) {
+        const img = document.createElement('img');
+        img.src = currentQ.image;
+        img.alt = 'Question image';
+        img.className = 'question-image';
+        questionEl.appendChild(img);
+      }
+
+      // Show reference link immediately when question is loaded
+      const referenceDiv = document.getElementById('reference');
+      const referenceLink = document.getElementById('referenceLink');
+      
+      // Get the reference for the current question
+      const currentReference = currentQ.reference;
+      console.log('Current question:', currentQ.question);
+      console.log('Current reference:', currentReference);
+      
+      if (currentReference) {
+        referenceLink.href = currentReference;
+        referenceLink.textContent = "Click here to learn more";
+        referenceDiv.style.display = 'block';
+      } else {
+        referenceDiv.style.display = 'none';
+      }
+
+      currentQ.options.forEach(optionText => {
+        const button = document.createElement('button');
+        button.classList.add('option');
+        button.textContent = optionText;
+        button.onclick = () => checkAnswer(button, optionText);
+        optionsEl.appendChild(button);
+      });
+
+      updateProgress();
+    }
+
+    function disableOptions() {
+      Array.from(optionsEl.children).forEach(btn => btn.classList.add('disabled'));
+    }
+
+    function markCorrectOption(correctText) {
+      const buttons = Array.from(optionsEl.children);
+      const correctBtn = buttons.find(b => b.textContent === correctText);
+      if (correctBtn) correctBtn.classList.add('correct');
+    }
+
+    function checkAnswer(selectedBtn, selectedText) {
+      if (answeredThisQuestion) return; // prevenim dublu-click
+      answeredThisQuestion = true;
+
+      const correctText = QUESTIONS[currentQuestion].answer;
+      const isCorrect = selectedText === correctText;
+
+      if (isCorrect) {
+        score++;
+        selectedBtn.classList.add('correct'); // albastru
+      } else {
+        selectedBtn.classList.add('wrong');   // roșu
+        markCorrectOption(correctText);       // marchează varianta corectă
+      }
+
+      disableOptions();
+      nextBtn.disabled = false; // utilizatorul decide când trece mai departe
+    }
+
+    function endQuiz() {
+      questionEl.style.display = 'none';
+      optionsEl.style.display = 'none';
+      nextBtn.style.display = 'none';
+      restartBtn.style.display = 'inline-block';
+      progressEl.textContent = '';
+      resultEl.style.display = 'block';
+      scoreEl.textContent = `${score} / ${QUESTIONS.length}`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (!answeredThisQuestion) return;
+      currentQuestion++;
+      loadQuestion();
+    });
+
+    restartBtn.addEventListener('click', () => {
+      // Re-inițializăm cu un nou shuffle și opțiuni amestecate
+      const reShuffled = shuffle(BASE_QUESTIONS).map(q => {
+        const shuffledOptions = shuffle(q.options);
+        return { 
+          question: q.question, 
+          options: shuffledOptions, 
+          answer: q.answer,
+          reference: q.reference  // Make sure to include the reference when reshuffling
+        };
+      });
+
+      // Rescriem QUESTIONS in-place (pentru simplitate refacem starea locală)
+      QUESTIONS.length = 0;
+      reShuffled.forEach(item => QUESTIONS.push(item));
+
+      currentQuestion = 0;
+      score = 0;
+      answeredThisQuestion = false;
+
+      questionEl.style.display = 'block';
+      optionsEl.style.display = 'flex';
+      resultEl.style.display = 'none';
+      restartBtn.style.display = 'none';
+      nextBtn.style.display = 'inline-block';
+      nextBtn.disabled = true;
+
+      loadQuestion();
+    });
+
+    // Init
+    loadQuestion();
+  </script>
+</body>
+</html>
