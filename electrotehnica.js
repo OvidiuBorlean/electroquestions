@@ -2673,6 +2673,7 @@ const BASE_QUESTIONS = [
         ],
         "answer": "asigură izolarea personalului care lucrează la întreruptor, de restul instalaţiei aflată sub tensiune.",
         "reference": "https://electric14.ro/blog/tipuri-de-intrerupatoare.html?srsltid=AfmBOopct01CGLu6G3PUSyS6cKrWwVUszYIIMBayeYyRHPvwaKdo-5jn"
+    },
     {
         "question": "Utilizarea întreruptorului debroşabil:",
         "options": [
