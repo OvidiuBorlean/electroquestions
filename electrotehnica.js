@@ -2222,7 +2222,7 @@ const BASE_QUESTIONS = [
             "reactanţei"
         ],
         "answer": "reactanţei",
-        "reference": "https://electromed.ro/wp-content/uploads/2021/01/11-Unitati-de-masura-electrotehnica.pdf
+        "reference": "https://electromed.ro/wp-content/uploads/2021/01/11-Unitati-de-masura-electrotehnica.pdf",
     },
     {
         "question": "Transformatoarele de măsurare de curent:",
