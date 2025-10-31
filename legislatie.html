@@ -310,16 +310,19 @@
     });
 
     restartBtn.addEventListener('click', () => {
-      // Re-inițializăm cu un nou shuffle și opțiuni amestecate
-      const reShuffled = shuffle(BASE_QUESTIONS).map(q => {
-        const shuffledOptions = shuffle(q.options);
-        return { 
-          question: q.question, 
-          options: shuffledOptions, 
-          answer: q.answer,
-          reference: q.reference  // Make sure to include the reference when reshuffling
-        };
-      });
+      // Re-inițializăm cu un nou shuffle, limităm la 30 și opțiuni amestecate
+      const reShuffled = shuffle(BASE_QUESTIONS)
+        .slice(0, 30)
+        .map(q => {
+          const shuffledOptions = shuffle(q.options);
+          return {
+            question: q.question,
+            options: shuffledOptions,
+            answer: q.answer,
+            reference: q.reference,
+            image: q.image // preserve image if present
+          };
+        });
 
       // Rescriem QUESTIONS in-place (pentru simplitate refacem starea locală)
       QUESTIONS.length = 0;
