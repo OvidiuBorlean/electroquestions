@@ -1776,7 +1776,7 @@ const BASE_QUESTIONS = [
             "de 1,05 ori curentul reglat",
             "de 1,20 ori curentul reglat"
         ],
-        "answer": "egală cu a curentului reglat",
+        "answer": "de 1,20 ori curentul reglat",
         "reference": "https://example.com/reference"
     },
     {

@@ -53,6 +53,34 @@
             background: #1e3a8a;
             color: #fff;
         }
+        /* Image box / thumbnails */
+        .image-box {
+            margin-top: 24px;
+            width: 100%;
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-box .thumbnails {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .image-box .thumbnails a img {
+            width: 120px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            border: 1px solid #e6e6e6;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .image-box .thumbnails a img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+        }
     </style>
 </head>
 <body>
@@ -62,5 +90,21 @@
         <div class="menu-item"><a href="normetehnice.html">Norme Tehnice</a></div>
         <div class="menu-item"><a href="legislatie.html">Legislatie</a></div>
     </div>
+  
+        <!-- Image box: small gallery / showcase -->
+        <div class="image-box" aria-label="Gallery">
+            <h2 style="margin-top:30px; color:#333; font-size:1.05em;">Exemple</h2>
+            <div class="thumbnails">
+                <a href="images/circuit-series.svg" target="_blank" aria-label="Series circuit image">
+                    <img src="images/circuit-series.svg" alt="Circuit serie" />
+                </a>
+                <a href="images/circuit-parallel.svg" target="_blank" aria-label="Parallel circuit image">
+                    <img src="images/circuit-parallel.svg" alt="Circuit paralel" />
+                </a>
+                <a href="images/q23.png" target="_blank" aria-label="Sample question image">
+                    <img src="images/q23.png" alt="Exemplu întrebare" />
+                </a>
+            </div>
+        </div>
 </body>
 </html>

@@ -77,7 +77,7 @@ const BASE_QUESTIONS = [
             "transformator de curent",
             "transformator de tensiune"
         ],
-        "answer": "ransformator de curent;",
+        "answer": "transformator de curent",
         "reference": "https://sites.google.com/site/bazeleelectronicii/home/transformatoare/6-transformatorul-de-curent"
     },
     {
@@ -153,11 +153,11 @@ const BASE_QUESTIONS = [
     {
         "question": "Cantitatea de căldura produsã la trecerea curentului electric printr-un conductor este:",
         "options": [
-            " direct proporţională cu secţiunea conductorului",
-            " direct proporţionala cu pătratul intensităţii curentului",
-            " invers proporţionala cu rezistenta conductorului"
+            "direct proporţională cu secţiunea conductorului",
+            "direct proporţionala cu pătratul intensităţii curentului",
+            "invers proporţionala cu rezistenta conductorului"
         ],
-        "answer": " direct proporţională cu pătratul intensităţii curentului",
+        "answer": "direct proporţionala cu pătratul intensităţii curentului",
         "reference": "https://www.electrica.ro/ro/despre-noi/ghid-de-bune-practici-in-exploatarea-statiilor-electrice-de-mijlocasi-inalta-tensiune/"
     },
     {
@@ -281,7 +281,7 @@ const BASE_QUESTIONS = [
             "mărirea reactanţei schemei de alimentare între sursă şi locul de defect; ",
             "creşterea capacităţii de rupere a întreruptoarelor."
         ],
-        "answer": "marirea reactanţei schemei de alimentare între sursă şi locul de defect; ",
+        "answer": "mărirea reactanţei schemei de alimentare între sursă şi locul de defect; ",
         "reference": "https://schemaelectrica.blogspot.com/2015/03/bobine-de-reactanta-in-statiile-de.html"
     },
     {
@@ -729,11 +729,11 @@ const BASE_QUESTIONS = [
     {
         "question": "Fluxul electric total, emis de o sarcină electrică de valoare q printr-o suprafaţă închisă care o înconjoară, este egal cu:",
         "options": [
-            " valoarea numerică 2q",
+            "valoarea numerică 2q",
             "valoarea numerică q",
             "valoarea numerică q/2"
         ],
-        "answer": " valoarea numerică q",
+        "answer": "valoarea numerică q",
         "reference": "https://phys.utcluj.ro/PersonalFile/Cursuri/BarleaCurs/ELECTRIC_2c.pdf"
     },
     {
@@ -1007,13 +1007,13 @@ const BASE_QUESTIONS = [
         "reference": "https://www.researchgate.net/profile/Sorina-Costinas/publication/258129687_Partea_electrica_a_centralelor_si_statiilor_Note_de_curs/links/54f722500cf2ccffe9da9c63/Partea-electrica-a-centralelor-si-statiilor-Note-de-curs.pdf"
     },
     {
-        "question": "În cazul schemelor cu două sisteme de bare colectoare şi un întreruptor pe circuit, funcţionarea cu unul dintre sistemele de bare în rezervă rece ( fără tensiune) este avantajoasă ",
+        "question": "*În cazul schemelor cu două sisteme de bare colectoare şi un întreruptor pe circuit, funcţionarea cu unul dintre sistemele de bare în rezervă rece ( fără tensiune) este avantajoasă ",
         "options": [
             "numai atunci când se doreşte scurtarea duratei manevrelor în caz de ocolire a unui întreruptor;",
             "atunci când se doreşte micşorarea daunelor de nealimentare a consumatorilor în caz de scurtcircuit pe unul dintre sistemele de bare; ",
             "atunci când se doreşte scurtarea duratei manevrelor în caz de revizie a unuia dintre sistemele de bare colectoare. "
         ],
-        "answer": "tunci când se doreşte micşorarea daunelor de nealimentare a consumatorilor în caz de scurtcircuit pe unul dintre sistemele de bare; ",
+        "answer": "atunci când se doreşte micşorarea daunelor de nealimentare a consumatorilor în caz de scurtcircuit pe unul dintre sistemele de bare; ",
         "reference": "https://www.researchgate.net/profile/Sorina-Costinas/publication/258129687_Partea_electrica_a_centralelor_si_statiilor_Note_de_curs/links/54f722500cf2ccffe9da9c63/Partea-electrica-a-centralelor-si-statiilor-Note-de-curs.pdf"
     },
     {
@@ -1083,7 +1083,7 @@ const BASE_QUESTIONS = [
             "este necesară o cuplă transversală;",
             "nu este necesară o cuplă transversală."
         ],
-        "answer": "nu este necesară o cuplă transversala.",
+        "answer": "nu este necesară o cuplă transversală.",
         "reference": "https://stoianconstantin.wordpress.com/wp-content/uploads/2024/11/1.e-ip-71-2015-statii-de-conexiuni-si-de-transformare.pdf"
     },
     {
@@ -1817,7 +1817,7 @@ const BASE_QUESTIONS = [
             "depinde de lungimea liniei",
             "este independentă de tensiunea liniei"
         ],
-        "answer": ["se numeşte putere caracteristică sau putere naturală", "este independentă de tensiunea liniei"],
+        "answer": "se numeşte putere caracteristică sau putere naturală",
         "reference": "https://www.fizichim.ro/docs/fizica/clasa10/capitolul2-producerea-si-utilizarea-curentului-continuu/II-13-puterea-electrica/"
     },
     {
@@ -1857,7 +1857,7 @@ const BASE_QUESTIONS = [
             "magnetică",
             "chimică"
         ],
-        "answer": " electrică",
+        "answer": "electrică",
         "reference": "https://ro.wikipedia.org/wiki/Permitivitate_(electromagnetism)"
     },
     {
@@ -1931,13 +1931,13 @@ const BASE_QUESTIONS = [
         "reference": "https://www.tme.eu/ro/news/library-articles/page/64162/reluctanta-i-permeabilitate-magnetica/"
     },
     {
-        "question": "Carcasa  unei celule electrice ",
+        "question": "Carcasa unei celule electrice ",
         "options": [
             "asigură numai protecţia persoanelor împotriva atingerii accidentale a pieselor aflate sub tensiune în funcţionare normală sau a pieselor în mişcare din interiorul învelişului;",
             "asigură protecţia echipamentului electric împotriva pătrunderii corpurilor străine şi a umezelii;",
             "asigură protecţia echipamentului electric împotriva supratensiunilor."
         ],
-        "answer": "asigură protectia echipamentului electric împotriva pătrunderii corpurilor străine şi a umezelii;",
+        "answer": "asigură protecţia echipamentului electric împotriva pătrunderii corpurilor străine şi a umezelii;",
         "reference": "https://web.transelectrica.ro/nti-transelectrica/nti-uri/110.%20NTI-TEL-R-005-2017-00%20-%20Regulament%20exploatare%20tehnica%20a%20echipam.%20electr.ditributie%20primara/NTI-TEL-R-005-2017-00.pdf"
     },
     {
@@ -2697,7 +2697,7 @@ const BASE_QUESTIONS = [
             "conduce numai la realizarea unor celule cu întreţinere mult simplificată;",
             "conduce la realizarea unor celule compacte"
         ],
-        "answer": "conduce la realizarea unor celule cu pericol de incendiu",
+        "answer": "conduce la realizarea unor celule compacte",
         "reference": "https://electrical-engineering-portal.com/sulphur-hexafluoride-sf6-gas-insulated-switchgear"
     },
     {
