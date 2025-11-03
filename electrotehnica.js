@@ -630,7 +630,7 @@ const BASE_QUESTIONS = [
         "question": "Energia electromagnetică produsă de curentul i care parcurge un circuit care conţine o inductanţă L este egală cu:",
         "options": [
             "1/2 L i",
-            " 1/2 Li^2 ",
+            "1/2 Li^2",
             "Li"
         ],
         "answer": "1/2 Li^2",
@@ -799,11 +799,11 @@ const BASE_QUESTIONS = [
     {
         "question": "Forţa electrodinamică exercitată între două conductoare filiforme, paralele, lungi, aflate la distanţa r, străbătute de câte un curent:",
         "options": [
-            " este direct proporţională cu distanţa r dintre conductoare",
+            "este direct proporţională cu distanţa r dintre conductoare",
             "este invers proporţională cu distanţa r dintre conductoare",
-            " nu depinde de distanţa r dintre conductoare"
+            "nu depinde de distanţa r dintre conductoare"
         ],
-        "answer": " este invers proporţională cu distanţa r dintre conductoare",
+        "answer": "este invers proporţională cu distanţa r dintre conductoare",
         "reference": "https://images3.wikia.nocookie.net/nccmn/ro/images/4/4a/Electrotehnica_%28Pearsica%29.pdf"
     },
     {
@@ -1043,7 +1043,7 @@ const BASE_QUESTIONS = [
             "stinge arcul electric care apare in întrerupătoare",
             "asigura ungerea mecanismelor de acţionare"
         ],
-        "answer": ["asigură izolarea părților sub tensiune între ele si fatã de masã", "stinge arcul electric care apare in întrerupătoare"],
+        "answer": "stinge arcul electric care apare in întrerupătoare",
         "reference": "https://www.electricianul.ro/evaluarea-uleiurilor-minerale-electroizolante-folosite-in-instalatiile-de-transport-curent-pentru-inalta-tensiune/"
     },
     {
@@ -1224,7 +1224,7 @@ const BASE_QUESTIONS = [
             "asigură izolarea unei părţi a circuitului de bara colectoare aflată sub tensiune;",
             "comutaţia curentului în regim normal de funcţionare."
         ],
-        "answer": ["asigură doar selectarea sistemului de bare pe care urmează a fi conectat circuitul;", "asigură izolarea unei părţi a circuitului de bara colectoare aflată sub tensiune;"],
+        "answer": "asigură izolarea unei părţi a circuitului de bara colectoare aflată sub tensiune;",
         "reference": "https://www.researchgate.net/profile/Sorina-Costinas/publication/258129687_Partea_electrica_a_centralelor_si_statiilor_Note_de_curs/links/54f722500cf2ccffe9da9c63/Partea-electrica-a-centralelor-si-statiilor-Note-de-curs.pdf"
     },
     {
@@ -1481,7 +1481,7 @@ const BASE_QUESTIONS = [
         "question": "Legea a 2-a a lui Kirchhoff pentru un circuit de curent alternativ monofazat inductiv are forma:",
         "options": [
             "u = R i",
-            "u= L di/dt",
+            "u = L di/dt",
             "du = i/C dt"
         ],
         "answer": "u = L di/dt",
@@ -1608,11 +1608,11 @@ const BASE_QUESTIONS = [
         "reference": "https://www.researchgate.net/profile/Sorina-Costinas/publication/258129687_Partea_electrica_a_centralelor_si_statiilor_Note_de_curs/links/54f722500cf2ccffe9da9c63/Partea-electrica-a-centralelor-si-statiilor-Note-de-curs.pdf"
     },
     {
-        "question": "Nivelul de tensiune în sistem se reglează ",
+        "question": "*Nivelul de tensiune în sistem se reglează ",
         "options": [
             "încărcarea generatoarelor cu putere activa",
             "numai prin încărcarea generatoarelor cu putere reactiva",
-            "prin utilizare de compensatoare "
+            "prin utilizare de compensatoare"
         ],
         "answer": "prin utilizare de compensatoare",
         "reference": "https://tomaradu.yolasite.com/resources/30749113-Subiecte-rezolvate-examen-autorizare-ANRE-electricieni-2010-Electrotehnica.pdf"
@@ -2097,7 +2097,7 @@ const BASE_QUESTIONS = [
             "curentul primar si curentul secundar sunt foarte mici",
             "o înfăşurare este conectata la reţea, iar cealaltă este deschisa"
         ],
-        "answer": "o infăşurare este conectata la reţea, iar cealaltă este deschisa",
+        "answer": "o înfăşurare este conectata la reţea, iar cealaltă este deschisa",
         "reference": "https://ro.wikipedia.org/wiki/Transformator"
     },
     {
@@ -2331,13 +2331,13 @@ const BASE_QUESTIONS = [
         "reference": "https://hal.science/hal-04468786v1/file/2015Perform_Adascalitei-TCE-Curs389.pdf"
     },
     {
-        "question": "Sistemul de tensiuni ale unui sistem electric trifazat racordat la un generator electric care produce tensiuni electromotoare simetrice este::",
+        "question": "*Sistemul de tensiuni ale unui sistem electric trifazat racordat la un generator electric care produce tensiuni electromotoare simetrice este::",
         "options": [
             "este întotdeauna simetric",
             "este nesimetric dacă fazele sunt neegal încărcate",
             "este simetric dacă fazele sunt egal încărcate"
         ],
-        "answer": ["este nesimetric dacă fazele sunt neegal încărcate", "este simetric dacă fazele sunt egal încărcate"],
+        "answer": "este nesimetric dacă fazele sunt neegal încărcate",
         "reference": "https://users.utcluj.ro/~birok/Sem2/1-regimul%20nesimetric%20la%20transformatoare.pdf"
     },
     {

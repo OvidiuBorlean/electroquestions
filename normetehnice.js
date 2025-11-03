@@ -136,7 +136,7 @@ const BASE_QUESTIONS = [
             " numai între conductoarele active luate 2 câte 2 ",
             "între conductoarele active şi conductorul de protecţie conectat la reţeaua de legare la pământ "
         ],
-        "answer": "intre conductoarele active şi conductorul de protecţie conectat la reţeaua de legare la pământ ",
+        "answer": "între conductoarele active şi conductorul de protecţie conectat la reţeaua de legare la pământ ",
         "reference": "https://example.com/reference"
     },
     {
@@ -586,7 +586,7 @@ const BASE_QUESTIONS = [
             "în circuitele monofazate cu trei conductoare şi în circuitele polifazate ale căror conductoare de fază au secţiunea mai mică sau egală cu 16 mm2Cu sau 25 mm2Al",
             "în circuitele monofazate cu trei conductoare şi în circuitele polifazate ale căror conductoare de fază au secţiunea mai mică sau egală cu 25 mm2 Cu sau 35 mm2 Al"
         ],
-        "answer": "în circuitele monofazate cu trei conductoare şi în circuitele polifazate ale căror conductoare de fază au secţiunea mai mică sau egală cu 16 mm2Cu sau 25 mm2Al",
+        "answer": "în circuitele monofazate cu trei conductoare şi în circuitele polifazate ale căror conductoare de fază au secţiunea mai mică sau egală cu 25 mm2 Cu sau 35 mm2 Al",
         "reference": "https://example.com/reference"
     },
     {
@@ -846,7 +846,7 @@ const BASE_QUESTIONS = [
             "se admite condiţionat",
             "este interzisă"
         ],
-        "answer": "se admite",
+        "answer": "se admite condiţionat",
         "reference": "https://example.com/reference"
     },
     {
@@ -1416,7 +1416,7 @@ const BASE_QUESTIONS = [
             "izolaţia părţilor active periculoase care asigură un grad de protecţie împotriva şocurilor electrice, echivalent celui unei izolaţii duble",
             "izolaţia independentă prevăzută suplimentar faţă de izolaţia de bază, pentru protecţie în caz de defect."
         ],
-        "answer": " izolaţie părţilor active periculoase care asigură un grad de protecţie împotriva şocurilor electrice, echivalent celui unei izolaţii duble",
+        "answer": "izolaţia părţilor active periculoase care asigură un grad de protecţie împotriva şocurilor electrice, echivalent celui unei izolaţii duble",
         "reference": "https://example.com/reference"
     },
     {

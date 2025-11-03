@@ -44,7 +44,7 @@ const BASE_QUESTIONS = [
         "options": [
             "autorităţilor locale",
             "ministerului de resort",
-            "operatorului de distribuţie în executarea contractului de concesiune "
+            "operatorului de distribuţie în executarea contractului de concesiune"
         ],
         "answer": "operatorului de distribuţie în executarea contractului de concesiune",
         "reference": "https://example.com/reference"
@@ -546,7 +546,7 @@ const BASE_QUESTIONS = [
             "să execute lucrări, manevre sau intervenţii sub orice formă în instalaţiile operatorilor de reţea  ",
             "Să realizeze lucrări de instalaţii electrice în baza unor documentaţii de proiectare realizate de alţi electricieni autorizaţi"
         ],
-        "answer": "sa execute lucrări, manevre sau intervenţii sub orice formă în instalaţiile operatorilor de reţea  ",
+        "answer": "să execute lucrări, manevre sau intervenţii sub orice formă în instalaţiile operatorilor de reţea  ",
         "reference": "https://example.com/reference"
     },
     {
